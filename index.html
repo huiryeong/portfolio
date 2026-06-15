@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>박희령 | 글로벌 마케팅 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #0A0E1A;
+  --navy-2: #111827;
+  --navy-3: #1C2333;
+  --navy-4: #252D42;
+  --mint: #4FFFB0;
+  --mint-dim: rgba(79,255,176,0.12);
+  --mint-border: rgba(79,255,176,0.25);
+  --white: #F4F6FA;
+  --gray: #8B93A8;
+  --gray-2: #5A6278;
+  --border: rgba(255,255,255,0.07);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(10,14,26,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--mint);
+  letter-spacing: 0.08em;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 13px; color: var(--gray); text-decoration: none;
+  letter-spacing: 0.04em; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 8rem 2.5rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -200px; right: -100px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(79,255,176,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; }
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: var(--mint);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-tag::before {
+  content: '';
+  display: inline-block; width: 24px; height: 1px;
+  background: var(--mint);
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--mint);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--gray);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 3rem; }
+.chip {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; padding: 6px 14px;
+  border: 1px solid var(--mint-border);
+  border-radius: 100px;
+  color: var(--mint);
+  letter-spacing: 0.06em;
+}
+
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px;
+  background: var(--mint);
+  color: var(--navy);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px;
+  border: 1px solid var(--border);
+  color: var(--gray);
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--mint-border); color: var(--white); }
+
+/* SECTION COMMON */
+section { padding: 6rem 2.5rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: var(--mint);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-eyebrow::before {
+  content: '';
+  display: inline-block; width: 24px; height: 1px;
+  background: var(--mint);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.section-desc {
+  color: var(--gray);
+  font-size: 15px;
+  max-width: 520px;
+  margin-bottom: 3.5rem;
+  line-height: 1.8;
+}
+
+/* ABOUT */
+#about { background: var(--navy-2); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--gray); font-size: 15px; line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+.about-text p strong { color: var(--white); font-weight: 500; }
+.about-text p em { color: var(--mint); font-style: normal; }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.stat-box {
+  background: var(--navy-3);
+  padding: 1.5rem;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--mint);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--gray);
+  letter-spacing: 0.03em;
+}
+
+/* PROJECT CARDS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-card {
+  background: var(--navy-2);
+  padding: 2rem;
+  position: relative;
+  transition: background 0.25s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.project-card:hover { background: var(--navy-3); }
+
+.project-card::after {
+  content: '↗';
+  position: absolute; top: 1.75rem; right: 1.75rem;
+  font-size: 14px; color: var(--gray-2);
+  transition: color 0.2s, transform 0.2s;
+}
+.project-card:hover::after { color: var(--mint); transform: translate(2px, -2px); }
+
+.card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; color: var(--mint);
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.card-tech {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.tech-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; padding: 4px 10px;
+  background: var(--navy-4);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--gray);
+}
+
+/* FEATURED PROJECT — FULL WIDTH */
+.project-featured {
+  background: var(--navy-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.5px;
+}
+
+.featured-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 340px;
+}
+
+.featured-content {
+  padding: 2.5rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.featured-content .card-title { font-size: 1.7rem; }
+
+.featured-visual {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-3);
+  border-left: 1px solid var(--border);
+}
+.featured-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top left;
+  opacity: 0.85;
+  transition: opacity 0.3s, transform 0.4s;
+}
+.project-featured:hover .featured-visual img {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.featured-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: var(--mint);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: opacity 0.2s;
+}
+.featured-link:hover { opacity: 0.7; }
+.featured-link::after { content: ' ↗'; }
+
+/* INTERNATIONAL */
+.intl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.intl-card {
+  background: var(--navy-2);
+  padding: 2rem;
+  transition: background 0.2s;
+}
+.intl-card:hover { background: var(--navy-3); }
+
+.intl-flag {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.intl-title {
+  font-size: 14px; font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.intl-desc {
+  font-size: 12px; color: var(--gray); line-height: 1.7;
+}
+.intl-period {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; color: var(--mint);
+  margin-top: 0.75rem;
+}
+
+/* TECH / SKILLS */
+#skills { background: var(--navy-2); }
+
+.skills-table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.skill-col {
+  background: var(--navy-3);
+  padding: 1.5rem;
+}
+.skill-col-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; color: var(--mint);
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+.skill-items { list-style: none; }
+.skill-items li {
+  font-size: 13px; color: var(--gray);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+.skill-items li:last-child { border-bottom: none; }
+.skill-items li span { color: var(--white); font-weight: 400; }
+
+/* WHYKIKI */
+.whykiki-row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+.whykiki-left .section-title { margin-bottom: 1.5rem; }
+.whykiki-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.wk-stat {
+  background: var(--navy-3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+.wk-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; font-weight: 700;
+  color: var(--mint); line-height: 1;
+  margin-bottom: 4px;
+}
+.wk-label { font-size: 12px; color: var(--gray); }
+
+.whykiki-right {
+  background: var(--navy-3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.whykiki-right .quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--mint);
+}
+.whykiki-right .quote-sub {
+  font-size: 12px; color: var(--gray);
+}
+
+/* TIMELINE */
+.timeline { position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 11px; top: 8px; bottom: 8px;
+  width: 1px; background: var(--border);
+}
+.timeline-item {
+  display: flex; gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.timeline-dot {
+  width: 24px; height: 24px; flex-shrink: 0;
+  background: var(--navy-3);
+  border: 1px solid var(--mint-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+}
+.timeline-dot::after {
+  content: ''; width: 6px; height: 6px;
+  background: var(--mint); border-radius: 50%;
+}
+.timeline-content { padding-top: 1px; }
+.tl-period {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px; color: var(--mint);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.tl-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.tl-desc { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+/* CONTACT */
+#contact {
+  background: var(--navy-2);
+  text-align: center;
+}
+#contact .section-title { margin-bottom: 1rem; }
+#contact .section-desc { max-width: 440px; margin: 0 auto 2.5rem; }
+.contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* FOOTER */
+footer {
+  padding: 2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px; color: var(--gray-2);
+}
+
+/* DIVIDER */
+.divider {
+  width: 100%; height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .hero { padding: 7rem 1.25rem 4rem; }
+  section { padding: 4rem 1.25rem; }
+  .about-grid, .whykiki-row, .featured-inner { grid-template-columns: 1fr; }
+  .intl-grid { grid-template-columns: 1fr 1fr; }
+  .featured-visual { min-height: 200px; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">JAY PARK · PORTFOLIO</div>
+  <ul class="nav-links">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#projects">프로젝트</a></li>
+    <li><a href="#international">국제활동</a></li>
+    <li><a href="#skills">역량</a></li>
+    <li><a href="#contact">연락</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">GLOBAL MARKETING · AI TOOLS · DATA-DRIVEN</div>
+    <h1>
+      AI를 다루는<br>
+      <em>마케터,</em><br>
+      데이터로 말하는<br>기획자.
+    </h1>
+    <p class="hero-sub">
+      컴퓨터공학 × 영미문학번역을 복수전공하며, 기술과 감성을 연결하는 글로벌 마케팅을 지향합니다. 직접 만든 AI 마케팅 툴과 크로스컬처 기획 경험을 포트폴리오에 담았습니다.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">AI TOOL BUILDER</span>
+      <span class="chip">CROSS-CULTURAL</span>
+      <span class="chip">DATA JOURNALISM</span>
+      <span class="chip">GLOBAL MARKETING</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">프로젝트 보기</a>
+      <a href="#contact" class="btn-ghost">연락하기</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-eyebrow">ABOUT</div>
+        <h2 class="section-title">기술과 감성<br>사이에 삽니다</h2>
+        <p>
+          <strong>한국외국어대학교</strong> 컴퓨터공학부와 영미문학번역학과를 복수전공 중입니다. AI 백엔드를 짜면서 동시에 소비자 심리와 문화적 뉘앙스를 분석합니다.
+        </p>
+        <p>
+          이스라엘 국제학교 재학 경험으로 <em>크로스컬처 감각</em>을 키웠고, 한미협회·한일청년파트너십 등 국제 프로그램을 통해 글로벌 시장을 직접 체험했습니다.
+        </p>
+        <p>
+          "AI가 만든 광고가 넘쳐나는 시대에, 브랜드가 소비자에게 어떤 온도로 전달되느냐"를 늘 고민합니다. 그래서 Transcreate와 Campaign Builder — <em>문화적 맥락까지 읽는 AI 마케팅 툴</em>을 직접 만들었습니다.
+        </p>
+      </div>
+      <div>
+        <div class="about-stats">
+          <div class="stat-box">
+            <div class="stat-num">2+</div>
+            <div class="stat-label">AI 마케팅 툴 직접 개발</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">3개국</div>
+            <div class="stat-label">거주·활동 경험</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2위</div>
+            <div class="stat-label">캡스톤 22팀 중 수상</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">CMC</div>
+            <div class="stat-label">논문 제출 (딥페이크 탐지)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-eyebrow">PROJECTS</div>
+    <h2 class="section-title">직접 만들고,<br>직접 검증했습니다</h2>
+    <p class="section-desc">광고 카피 현지화부터 캠페인 기획까지 — AI로 구현하고, 실제 마케팅 맥락에서 검증한 프로젝트들입니다.</p>
+
+    <!-- TRANSCREATE - FEATURED -->
+    <div class="project-featured" style="margin-bottom: 1.5px;">
+      <div class="featured-inner">
+        <div class="featured-content">
+          <div>
+            <div class="card-tag">AI MARKETING TOOL · 01</div>
+            <div class="card-title">Transcreate</div>
+            <p class="card-desc">
+              글로벌 광고 카피를 단순 번역이 아닌 <strong style="color:var(--white)">문화적 감각으로 현지화</strong>하는 AI 툴. 원문 영어 카피를 입력하면 타깃 시장의 문화 코드에 맞게 재창작하고, 직역 시 발생할 수 있는 <strong style="color:var(--white)">위험 요소를 사전에 플래깅</strong>합니다. Nike, Apple, Airbnb 등 실제 글로벌 브랜드 케이스로 검증.
+            </p>
+            <div class="card-tech" style="margin-bottom:1.5rem;">
+              <span class="tech-pill">Google AI Studio</span>
+              <span class="tech-pill">Gemini API</span>
+              <span class="tech-pill">Cloud Run</span>
+              <span class="tech-pill">Cultural Risk Flagging</span>
+            </div>
+          </div>
+          <a href="https://transcreate-66856309088.asia-east1.run.app/" target="_blank" class="featured-link">라이브 데모 열기</a>
+        </div>
+        <div class="featured-visual">
+          <img src="screenshot-transcreate.png" alt="Transcreate 툴 스크린샷" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;padding:2rem;text-align:center;\'><div><div style=\'font-family:Space Mono,monospace;font-size:10px;color:var(--mint);letter-spacing:0.12em;margin-bottom:0.5rem;\'>LIVE DEMO</div><div style=\'font-size:13px;color:var(--gray);\'>transcreate-66856309088<br>.asia-east1.run.app</div></div></div>';">
+        </div>
+      </div>
+    </div>
+
+    <!-- CAMPAIGN BUILDER - FEATURED -->
+    <div class="project-featured" style="margin-bottom: 2rem;">
+      <div class="featured-inner" style="direction: rtl;">
+        <div class="featured-content" style="direction: ltr;">
+          <div>
+            <div class="card-tag">AI MARKETING TOOL · 02</div>
+            <div class="card-title">Campaign Concept Builder</div>
+            <p class="card-desc">
+              대행사 수석 CD처럼 — 브랜드 브리프를 입력하면 <strong style="color:var(--white)">상호 대조적인 3가지 크리에이티브 루트</strong>를 자동 생성합니다. 각 루트마다 Big Idea, Core Slogan, 전략 추천 이유까지 포함. 기획 PT 준비 시간을 대폭 단축합니다.
+            </p>
+            <div class="card-tech" style="margin-bottom:1.5rem;">
+              <span class="tech-pill">Gemini 3.5 Flash</span>
+              <span class="tech-pill">Strategy Framework</span>
+              <span class="tech-pill">Cloud Run</span>
+              <span class="tech-pill">PT Deck 생성</span>
+            </div>
+          </div>
+          <a href="https://service-885528335121.asia-east1.run.app/" target="_blank" class="featured-link">라이브 데모 열기</a>
+        </div>
+        <div class="featured-visual" style="direction: ltr; border-left: none; border-right: 1px solid var(--border);">
+          <img src="screenshot-campaign.png" alt="Campaign Builder 스크린샷" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;padding:2rem;text-align:center;\'><div><div style=\'font-family:Space Mono,monospace;font-size:10px;color:var(--mint);letter-spacing:0.12em;margin-bottom:0.5rem;\'>LIVE DEMO</div><div style=\'font-size:13px;color:var(--gray);\'>service-885528335121<br>.asia-east1.run.app</div></div></div>';">
+        </div>
+      </div>
+    </div>
+
+    <!-- OTHER PROJECTS GRID -->
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="card-tag">DATA JOURNALISM · 03</div>
+        <div class="card-title">Whykiki (WKK)</div>
+        <p class="card-desc">
+          "왜 우리는 낯선 사람의 일상을 구독하는가?" — 청년 충동행동을 데이터와 심리학으로 분석하는 매거진 브랜드. 브랜드 아이덴티티 설계부터 N=36 서베이, 데이터 시각화, 진(Zine) 카피라이팅까지 전 과정 주도.
+        </p>
+        <div class="card-tech">
+          <span class="tech-pill">브랜드 기획</span>
+          <span class="tech-pill">설문 리서치 N=36</span>
+          <span class="tech-pill">데이터 시각화</span>
+          <span class="tech-pill">카피라이팅</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-tag">TECH PROJECT · 04</div>
+        <div class="card-title">딥페이크 탐지 시스템</div>
+        <p class="card-desc">
+          AI 악용 문제를 해결하기 위한 영상 딥페이크 탐지 시스템 개발. "설명 가능한 AI"를 구현해 탐지 결과뿐 아니라 왜 딥페이크인지 시각적으로 제시. 22개 팀 중 2위 수상 후 논문으로 확장, CMC 제출.
+        </p>
+        <div class="card-tech">
+          <span class="tech-pill">XAI / Grad-CAM</span>
+          <span class="tech-pill">딥러닝 백엔드</span>
+          <span class="tech-pill">22팀 중 2위</span>
+          <span class="tech-pill">CMC 논문 제출</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-tag">LEADERSHIP · 05</div>
+        <div class="card-title">공과대학 학생회 기획차장</div>
+        <p class="card-desc">
+          이태원 참사 당일, 예정된 핼러윈 행사를 즉각 취소하고 중간고사 간식 행사로 대체 기획. 예산 항목 재조정을 위해 대학 측 설득 및 협상 주도. 위기 속에서 더 강한 실행력을 발휘한 경험.
+        </p>
+        <div class="card-tech">
+          <span class="tech-pill">위기 대응</span>
+          <span class="tech-pill">예산 협상</span>
+          <span class="tech-pill">2년 활동</span>
+          <span class="tech-pill">행사 기획 전반</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHYKIKI DEEP DIVE -->
+<section id="whykiki" style="background: var(--navy-2);">
+  <div class="section-inner">
+    <div class="whykiki-row">
+      <div class="whykiki-left">
+        <div class="section-eyebrow">DATA JOURNALISM</div>
+        <h2 class="section-title">Whykiki</h2>
+        <p style="color: var(--gray); font-size: 15px; line-height: 1.8; margin-bottom: 1rem;">
+          청년의 충동행동을 데이터와 심리학으로 해석하는 매거진 브랜드입니다. 첫 호의 주제는 <strong style="color:var(--white)">"왜 우리는 낯선 사람의 일상을 구독하는가"</strong> — 구독 경제 속 인간의 연결 욕구를 분석했습니다.
+        </p>
+        <p style="color: var(--gray); font-size: 15px; line-height: 1.8;">
+          브랜드 네이밍, 아이덴티티 설계, 직접 진행한 설문 리서치, 학술 연구의 대중화 번역, 진(Zine) 제작까지 — 기획자로서의 전 과정을 실행했습니다.
+        </p>
+        <div class="whykiki-detail">
+          <div class="wk-stat">
+            <div class="wk-num">N=36</div>
+            <div class="wk-label">1차 서베이 응답자</div>
+          </div>
+          <div class="wk-stat">
+            <div class="wk-num">Zine</div>
+            <div class="wk-label">실물 진 제작 완료</div>
+          </div>
+          <div class="wk-stat">
+            <div class="wk-num">3팀</div>
+            <div class="wk-label">데이터 저널리즘 수업</div>
+          </div>
+          <div class="wk-stat">
+            <div class="wk-num">100%</div>
+            <div class="wk-label">기획·리서치·편집 전담</div>
+          </div>
+        </div>
+      </div>
+      <div class="whykiki-right">
+        <p class="quote">
+          "데이터를 모으는 것과 이야기를 만드는 것은 다르다. Whykiki는 그 간극을 메우는 연습이었습니다."
+        </p>
+        <p class="quote-sub" style="margin-bottom:1.5rem;">— 기획 의도 중에서</p>
+        <div style="border-top: 1px solid var(--border); padding-top: 1.25rem;">
+          <p style="font-family:'Space Mono',monospace; font-size:10px; color:var(--mint); letter-spacing:0.1em; margin-bottom:0.75rem;">PROCESS</p>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--mint);margin-top:2px;">01</span>
+              <span style="font-size:13px;color:var(--gray);">브랜드 네이밍 & 아이덴티티 설계</span>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--mint);margin-top:2px;">02</span>
+              <span style="font-size:13px;color:var(--gray);">1차 서베이 설계 및 응답 분석</span>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--mint);margin-top:2px;">03</span>
+              <span style="font-size:13px;color:var(--gray);">학술 심리학 연구 → 대중 언어로 번역</span>
+            </div>
+            <div style="display:flex; gap:0.75rem; align-items:flex-start;">
+              <span style="font-family:'Space Mono',monospace;font-size:10px;color:var(--mint);margin-top:2px;">04</span>
+              <span style="font-size:13px;color:var(--gray);">데이터 시각화 & 진 카피라이팅</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INTERNATIONAL -->
+<section id="international">
+  <div class="section-inner">
+    <div class="section-eyebrow">INTERNATIONAL</div>
+    <h2 class="section-title">글로벌 현장에서<br>배운 감각</h2>
+    <p class="section-desc">단순한 해외 경험이 아닙니다. 다른 언어, 다른 문화권의 논리와 설득 구조를 직접 체험하고 분석했습니다.</p>
+
+    <div class="intl-grid">
+      <div class="intl-card">
+        <span class="intl-flag">🇮🇱</span>
+        <div class="intl-title">이스라엘 국제학교</div>
+        <p class="intl-desc">영어 기준 미달 상태에서 히브리어 수강을 교감에게 직접 설득, 승인 획득. 제약 조건을 기획 관점으로 해결하는 방식을 체득.</p>
+        <div class="intl-period">수년간 현지 거주</div>
+      </div>
+      <div class="intl-card">
+        <span class="intl-flag">🇺🇸</span>
+        <div class="intl-title">한미협회 서포터즈 (팀장)</div>
+        <p class="intl-desc">한미 소프트파워 기고문 작성. K-콘텐츠 확산 사례를 분석하며 문화가 브랜드보다 먼저 시장을 열 수 있다는 관점 정립.</p>
+        <div class="intl-period">2025.07 — 2025.12</div>
+      </div>
+      <div class="intl-card">
+        <span class="intl-flag">🇺🇸</span>
+        <div class="intl-title">미국알기 프로그램</div>
+        <p class="intl-desc">한미 산업·기술 협력 프로그램 참여. AI·양자컴퓨팅 이슈 분석 및 한미 산업 변화 방향 연구. 주한미국대사관·한미협회 공동 주관.</p>
+        <div class="intl-period">2025.07 — 한 달간</div>
+      </div>
+      <div class="intl-card">
+        <span class="intl-flag">🇯🇵</span>
+        <div class="intl-title">한일청년 파트너십 (팀장)</div>
+        <p class="intl-desc">한일 청년이 3일간 합숙하며 노동·외교·사회 현안 토론. 노동팀 대표로 토론 주도 및 양국 의견 조율. 서로 다른 논리 구조를 연결하는 조율 경험.</p>
+        <div class="intl-period">2025.12</div>
+      </div>
+      <div class="intl-card" style="grid-column: span 2;">
+        <span class="intl-flag">🌐</span>
+        <div class="intl-title">크로스컬처 마케팅 관점</div>
+        <p class="intl-desc">세 나라에서 살고 두 나라와 협력 프로그램을 경험하면서 얻은 것 — 같은 메시지가 문화에 따라 어떻게 다르게 수신되는지 직접 체험한 감각. Transcreate의 "문화적 위험 플래깅" 기능은 이 경험에서 나왔습니다.</p>
+        <div class="intl-period">영어 · 히브리어 · 한국어</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow">SKILLS & BACKGROUND</div>
+    <h2 class="section-title">역량</h2>
+    <p class="section-desc" style="margin-bottom: 2.5rem;">기술과 마케팅, 두 언어를 모두 씁니다.</p>
+
+    <div class="skills-table">
+      <div class="skill-col">
+        <div class="skill-col-title">MARKETING</div>
+        <ul class="skill-items">
+          <li><span>글로벌 마케팅 기획</span></li>
+          <li><span>광고 카피 현지화</span></li>
+          <li><span>캠페인 컨셉 개발</span></li>
+          <li><span>소비자 리서치</span></li>
+          <li><span>브랜드 아이덴티티</span></li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">AI & TECH</div>
+        <ul class="skill-items">
+          <li><span>Gemini / Claude API</span></li>
+          <li><span>프롬프트 엔지니어링</span></li>
+          <li><span>Google Cloud Run</span></li>
+          <li><span>딥러닝 (백엔드)</span></li>
+          <li><span>XAI / Grad-CAM</span></li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">DATA</div>
+        <ul class="skill-items">
+          <li><span>설문 설계 & 분석</span></li>
+          <li><span>데이터 시각화</span></li>
+          <li><span>ADsP 자격증</span></li>
+          <li><span>데이터 저널리즘</span></li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">LANGUAGES</div>
+        <ul class="skill-items">
+          <li><span>한국어</span> (모국어)</li>
+          <li><span>영어</span> (유창)</li>
+          <li><span>히브리어</span> (일상 회화)</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">EDUCATION</div>
+        <ul class="skill-items">
+          <li><span>한국외국어대학교</span></li>
+          <li>컴퓨터공학부</li>
+          <li>영미문학번역 (복수)</li>
+          <li>GPA 3.61 / 4.50</li>
+          <li>졸업예정 2027.08</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-eyebrow" style="justify-content:center;">CONTACT</div>
+    <h2 class="section-title">함께 이야기 나눠요</h2>
+    <p class="section-desc">
+      글로벌 마케팅, AI 툴, 크로스컬처 기획에 관심 있는 분이라면 언제든 연락주세요.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:your@email.com" class="btn-primary">이메일 보내기</a>
+      <a href="https://transcreate-66856309088.asia-east1.run.app/" target="_blank" class="btn-ghost">Transcreate 체험</a>
+      <a href="https://service-885528335121.asia-east1.run.app/" target="_blank" class="btn-ghost">Campaign Builder 체험</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-copy">© 2026 Jay Park (박희령) · 한국외국어대학교</div>
+  <div class="footer-copy">컴퓨터공학부 · 영미문학번역</div>
+</footer>
+
+</body>
+</html>
