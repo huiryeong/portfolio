@@ -5,271 +5,165 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>박희령 | 글로벌 마케팅 포트폴리오</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --cream:   #FAF8F3;
-  --sand:    #F0EBE0;
-  --sand-2:  #E5DDD0;
-  --charcoal:#1A1410;
-  --brown:   #5C3D1E;
-  --rust:    #B8541A;
-  --rust-l:  #F4E8DC;
-  --mid:     #6B5744;
-  --light:   #9C8778;
-  --border:  #D4C9BB;
-  --white:   #FFFFFF;
+  --bg:      #FFFFFF;
+  --bg2:     #F7F7F5;
+  --bg3:     #111111;
+  --text:    #111111;
+  --sub:     #555555;
+  --muted:   #999999;
+  --accent:  #2563EB;
+  --accent2: #EFF4FF;
+  --border:  #E5E5E5;
+  --border2: rgba(255,255,255,0.12);
 }
-
 html { scroll-behavior: smooth; }
-body { background: var(--cream); color: var(--charcoal); font-family: 'DM Sans', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+body { background: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; font-weight: 400; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-/* ─── NAV ─── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0 3rem; height: 60px;
-  background: var(--white);
-  border-bottom: 1.5px solid var(--border);
-}
-.nav-logo { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; color: var(--charcoal); letter-spacing: 0.1em; }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a { font-size: 13px; font-weight: 500; color: var(--mid); text-decoration: none; transition: color .2s; }
-.nav-links a:hover { color: var(--charcoal); }
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; background: var(--bg); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.04em; color: var(--text); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--sub); text-decoration: none; transition: color .15s; }
+.nav-links a:hover { color: var(--accent); }
 
-/* ─── HERO ─── */
-.hero {
-  min-height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
-  padding-top: 60px;
-}
-.hero-left {
-  background: var(--charcoal);
-  padding: 5rem 4rem;
-  display: flex; flex-direction: column; justify-content: center;
-}
-.hero-eyebrow {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px; color: var(--rust); letter-spacing: 0.2em;
-  margin-bottom: 2rem;
-}
-.hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(2.8rem, 4.5vw, 4.5rem);
-  color: var(--white);
-  line-height: 1.05;
-  margin-bottom: 2rem;
-  letter-spacing: -0.02em;
-}
-.hero h1 em { font-style: italic; color: #D4926B; }
-.hero-sub { font-size: 15px; color: #A09080; line-height: 1.9; margin-bottom: 2.5rem; max-width: 420px; }
-.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 3rem; }
-.chip {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px; letter-spacing: 0.08em;
-  padding: 5px 12px; border-radius: 2px;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.6);
-}
-.hero-cta { display: flex; gap: 1rem; }
-.btn-fill { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: var(--rust); color: var(--white); font-size: 13px; font-weight: 600; text-decoration: none; border-radius: 2px; transition: background .2s; }
-.btn-fill:hover { background: #9A4415; }
-.btn-line { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.7); font-size: 13px; text-decoration: none; border-radius: 2px; transition: border-color .2s, color .2s; }
-.btn-line:hover { border-color: rgba(255,255,255,0.7); color: var(--white); }
-.hero-right {
-  background: var(--sand);
-  padding: 5rem 4rem;
-  display: flex; flex-direction: column; justify-content: center; gap: 1px;
-}
-.hero-stat {
-  background: var(--white);
-  padding: 1.75rem 2rem;
-  border-left: 3px solid var(--rust);
-  margin-bottom: 12px;
-}
-.hero-stat:last-child { margin-bottom: 0; }
-.hs-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--charcoal); line-height: 1; margin-bottom: 4px; }
-.hs-label { font-size: 12px; color: var(--mid); font-weight: 500; }
+/* HERO */
+.hero { padding-top: 56px; display: grid; grid-template-columns: 1fr 420px; min-height: 100vh; }
+.hero-main { padding: 6rem 4rem 5rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
+.hero-kicker { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.18em; margin-bottom: 2rem; }
+.hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(3.2rem, 5vw, 5rem); font-weight: 800; line-height: 1.0; letter-spacing: -0.03em; color: var(--text); margin-bottom: 1.75rem; }
+.hero h1 .accent { color: var(--accent); }
+.hero-body { font-size: 16px; color: var(--sub); line-height: 1.85; max-width: 480px; margin-bottom: 2.5rem; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 3rem; }
+.tag { font-family: 'Space Mono', monospace; font-size: 10px; padding: 5px 12px; border: 1px solid var(--border); border-radius: 100px; color: var(--sub); letter-spacing: 0.06em; }
+.cta-row { display: flex; gap: 12px; }
+.btn-a { padding: 13px 28px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 4px; transition: background .15s; }
+.btn-a:hover { background: #1d4ed8; }
+.btn-b { padding: 13px 28px; border: 1.5px solid var(--border); color: var(--sub); font-size: 14px; text-decoration: none; border-radius: 4px; transition: border-color .15s, color .15s; }
+.btn-b:hover { border-color: var(--accent); color: var(--accent); }
+.hero-side { background: var(--bg3); padding: 4rem 3rem; display: flex; flex-direction: column; gap: 1px; justify-content: center; }
+.h-stat { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 0; }
+.h-stat:first-child { padding-top: 0; }
+.h-stat:last-child { border-bottom: none; padding-bottom: 0; }
+.hs-n { font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
+.hs-l { font-size: 12px; color: rgba(255,255,255,0.45); }
 
-/* ─── SECTION WRAPPER ─── */
-.sec { padding: 5rem 3rem; }
-.sec-inner { max-width: 1140px; margin: 0 auto; }
-.sec-label {
-  display: flex; align-items: center; gap: 12px;
-  font-family: 'Space Mono', monospace;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
-  color: var(--rust); margin-bottom: 1rem;
-}
-.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.sec-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  color: var(--charcoal); line-height: 1.15;
-  margin-bottom: 0.6rem; letter-spacing: -0.02em;
-}
-.sec-desc { font-size: 15px; color: var(--mid); line-height: 1.8; max-width: 520px; margin-bottom: 2.5rem; }
+/* SECTION */
+.sec { padding: 5.5rem 2.5rem; }
+.sec-inner { max-width: 1120px; margin: 0 auto; }
+.sec-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1.5px solid var(--text); }
+.sec-kicker { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.18em; margin-bottom: 0.5rem; }
+.sec-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--text); }
+.sec-num { font-family: 'Syne', sans-serif; font-size: 5rem; font-weight: 800; color: var(--border); line-height: 1; letter-spacing: -0.05em; }
 
-/* SECTION BG ALTERNATION */
-.bg-white { background: var(--white); }
-.bg-sand  { background: var(--sand); }
-.bg-dark  { background: var(--charcoal); }
-.bg-dark .sec-title { color: var(--white); }
-.bg-dark .sec-desc  { color: #A09080; }
-.bg-dark .sec-label { color: #D4926B; }
-.bg-dark .sec-label::after { background: rgba(255,255,255,0.12); }
+/* PROJECT CARD */
+.proj { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1.25rem; background: var(--bg); transition: border-color .2s, box-shadow .2s; }
+.proj:hover { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent2); }
+.proj.r { direction: rtl; }
+.proj.r > * { direction: ltr; }
+.p-body { padding: 2.5rem; display: flex; flex-direction: column; }
+.p-tag { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 0.6rem; }
+.p-title { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 0.8rem; letter-spacing: -0.02em; }
+.p-desc { font-size: 13px; color: var(--sub); line-height: 1.8; margin-bottom: 1.25rem; flex: 1; }
+.p-meta { background: var(--accent2); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 6px; }
+.p-row { display: flex; gap: 10px; font-size: 12px; }
+.p-k { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--accent); min-width: 30px; margin-top: 3px; font-weight: 700; }
+.p-v { color: var(--sub); line-height: 1.5; }
+.p-v strong { color: var(--text); font-weight: 600; }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+.pill { font-family: 'Space Mono', monospace; font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 3px; color: var(--muted); }
+.p-link { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; margin-top: auto; transition: opacity .15s; }
+.p-link:hover { opacity: 0.7; }
+.p-link::after { content: '↗'; }
+.p-img { background: var(--bg2); overflow: hidden; border-left: 1.5px solid var(--border); }
+.proj.r .p-img { border-left: none; border-right: 1.5px solid var(--border); }
+.p-img img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform .4s; }
+.proj:hover .p-img img { transform: scale(1.03); }
 
-/* ─── ABOUT GRID ─── */
-.about-text p { font-size: 15px; color: var(--mid); line-height: 1.9; margin-bottom: 1.1rem; }
-.about-text p strong { color: var(--charcoal); font-weight: 600; }
-.about-text p em { color: var(--rust); font-style: normal; font-weight: 500; }
-
-/* ─── PROJECT CARD ─── */
-.proj-card {
-  display: grid; grid-template-columns: 1fr 1fr;
-  border: 1.5px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  background: var(--white);
-  transition: box-shadow .25s;
-}
-.proj-card:hover { box-shadow: 0 8px 32px rgba(92,61,30,0.1); }
-.proj-card.flip { direction: rtl; }
-.proj-card.flip > * { direction: ltr; }
-
-.pc-body { padding: 2.5rem; display: flex; flex-direction: column; }
-.pc-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px; color: var(--rust); letter-spacing: 0.15em;
-  margin-bottom: 0.6rem;
-}
-.pc-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.65rem; color: var(--charcoal);
-  line-height: 1.2; margin-bottom: 0.9rem;
-}
-.pc-desc { font-size: 13px; color: var(--mid); line-height: 1.8; margin-bottom: 1.25rem; flex: 1; }
-
-.pc-meta { display: flex; flex-direction: column; gap: 8px; padding: 1rem 1.25rem; background: var(--rust-l); border-radius: 3px; margin-bottom: 1.25rem; }
-.pc-meta-row { display: flex; gap: 10px; font-size: 12px; }
-.pc-meta-k { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--rust); min-width: 32px; margin-top: 3px; letter-spacing: 0.06em; }
-.pc-meta-v { color: var(--charcoal); line-height: 1.5; }
-.pc-meta-v strong { font-weight: 600; }
-
-.pc-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
-.pc-pill { font-family: 'Space Mono', monospace; font-size: 10px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 2px; color: var(--mid); background: var(--sand); }
-
-.pc-link { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--rust); text-decoration: none; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 6px; margin-top: auto; }
-.pc-link::after { content: '↗'; }
-.pc-link:hover { color: #9A4415; }
-
-.pc-img { background: var(--sand-2); overflow: hidden; border-left: 1.5px solid var(--border); }
-.proj-card.flip .pc-img { border-left: none; border-right: 1.5px solid var(--border); }
-.pc-img img { width: 100%; height: 100%; object-fit: cover; object-position: top left; opacity: .93; transition: transform .4s, opacity .3s; }
-.proj-card:hover .pc-img img { transform: scale(1.03); opacity: 1; }
-
-/* ─── SNS CARD — same layout as proj-card ─── */
-.sns-card {
-  border: 1.5px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-  background: var(--white);
-  transition: box-shadow .25s;
-}
-.sns-card:hover { box-shadow: 0 8px 32px rgba(92,61,30,0.1); }
-
+/* SNS */
+.sns-wrap { border: 1.5px solid var(--border); border-radius: 6px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
+.sns-wrap:hover { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent2); }
 .sns-top { display: grid; grid-template-columns: 1fr 1fr; min-height: 340px; }
 .sns-info { padding: 2.5rem; display: flex; flex-direction: column; border-right: 1.5px solid var(--border); }
-.sns-handle { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--rust); letter-spacing: 0.15em; margin-bottom: 0.6rem; }
-.sns-t { font-family: 'DM Serif Display', serif; font-size: 1.65rem; color: var(--charcoal); line-height: 1.2; margin-bottom: 0.9rem; }
-.sns-d { font-size: 13px; color: var(--mid); line-height: 1.8; margin-bottom: 1.25rem; flex: 1; }
-.sns-img { background: var(--sand-2); overflow: hidden; }
-.sns-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: .93; transition: transform .4s; }
-.sns-card:hover .sns-img img { transform: scale(1.03); }
-
+.sns-handle { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 0.6rem; }
+.sns-title { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 0.8rem; }
+.sns-desc { font-size: 13px; color: var(--sub); line-height: 1.8; flex: 1; margin-bottom: 1.25rem; }
+.sns-img { background: var(--bg2); overflow: hidden; }
+.sns-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .4s; }
+.sns-wrap:hover .sns-img img { transform: scale(1.03); }
 .sns-bottom { display: grid; grid-template-columns: 1fr 1fr; border-top: 1.5px solid var(--border); }
-.sns-item { display: grid; grid-template-columns: 200px 1fr; min-height: 200px; }
+.sns-item { display: grid; grid-template-columns: 180px 1fr; min-height: 200px; }
 .sns-item + .sns-item { border-left: 1.5px solid var(--border); }
-.sns-item-img { overflow: hidden; border-right: 1.5px solid var(--border); }
-.sns-item-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; opacity: .93; }
-.sns-item-body { padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
-.sit { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--rust); letter-spacing: 0.1em; margin-bottom: 6px; }
-.sin { font-size: 14px; font-weight: 600; color: var(--charcoal); margin-bottom: 6px; }
-.sid { font-size: 12px; color: var(--mid); line-height: 1.7; }
+.sns-iimg { overflow: hidden; border-right: 1.5px solid var(--border); }
+.sns-iimg img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.sns-ibody { padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+.si-tag { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--accent); letter-spacing: 0.12em; margin-bottom: 6px; }
+.si-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.si-desc { font-size: 12px; color: var(--sub); line-height: 1.7; }
 
-/* ─── ACTIVITY CARDS ─── */
-.act-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
-.act-card {
-  background: var(--white);
-  padding: 1.75rem 2rem;
-  border: 1.5px solid var(--border);
-  border-radius: 4px;
-  transition: box-shadow .2s;
-}
-.act-card + .act-card { margin-top: 0; }
-.act-grid { gap: 12px; }
-.act-card:hover { box-shadow: 0 4px 16px rgba(92,61,30,0.08); }
-.act-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--rust); letter-spacing: 0.12em; margin-bottom: 6px; }
-.act-title { font-size: 14px; font-weight: 600; color: var(--charcoal); margin-bottom: 3px; }
-.act-period { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--light); margin-bottom: 12px; }
-.act-row { display: flex; gap: 8px; font-size: 12px; margin-bottom: 4px; color: var(--mid); }
-.act-k { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--rust); min-width: 28px; margin-top: 2px; font-weight: 700; }
-.act-v strong { color: var(--charcoal); font-weight: 600; }
+/* ACT GRID */
+.act-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1.5px solid var(--border); border-radius: 6px; overflow: hidden; }
+.act-card { background: var(--bg); padding: 1.75rem 2rem; transition: background .15s; }
+.act-card:hover { background: var(--accent2); }
+.ac-n { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); margin-bottom: 6px; }
+.ac-t { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.ac-p { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); margin-bottom: 12px; }
+.ac-row { display: flex; gap: 8px; font-size: 12px; margin-bottom: 4px; }
+.ac-k { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--accent); min-width: 28px; margin-top: 2px; font-weight: 700; }
+.ac-v { color: var(--sub); line-height: 1.5; }
+.ac-v strong { color: var(--text); font-weight: 600; }
 
-/* ─── INTERNATIONAL ─── */
-.intl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.intl-card { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 4px; padding: 2rem; }
-.intl-card.wide { grid-column: span 2; border-color: rgba(212,146,107,0.4); background: rgba(212,146,107,0.06); }
-.intl-flag { font-size: 1.6rem; margin-bottom: 0.75rem; display: block; }
-.intl-t { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
-.intl-p { font-family: 'Space Mono', monospace; font-size: 10px; color: #D4926B; margin-bottom: 4px; }
-.intl-r { font-size: 12px; color: #D4926B; margin-bottom: 6px; }
-.intl-d { font-size: 13px; color: #A09080; line-height: 1.75; }
+/* INTL */
+.intl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; overflow: hidden; }
+.intl-card { background: rgba(255,255,255,0.04); padding: 2rem; transition: background .15s; }
+.intl-card:hover { background: rgba(255,255,255,0.08); }
+.intl-card.w { grid-column: span 2; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(37,99,235,0.12); }
+.i-flag { font-size: 1.6rem; margin-bottom: 0.75rem; display: block; }
+.i-t { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.i-p { font-family: 'Space Mono', monospace; font-size: 10px; color: #93B4FF; margin-bottom: 4px; }
+.i-r { font-size: 12px; color: #93B4FF; margin-bottom: 8px; }
+.i-d { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.75; }
 
-/* ─── SKILLS ─── */
-.skills-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-.skill-box { background: var(--white); border: 1.5px solid var(--border); border-radius: 4px; padding: 1.5rem; }
-.skill-head { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--rust); letter-spacing: 0.12em; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
-.skill-list { list-style: none; }
-.skill-list li { font-size: 13px; color: var(--mid); padding: 5px 0; border-bottom: 1px solid var(--sand); }
-.skill-list li:last-child { border-bottom: none; }
-.skill-list li span { color: var(--charcoal); font-weight: 500; }
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border); border: 1.5px solid var(--border); border-radius: 6px; overflow: hidden; }
+.sk-box { background: var(--bg); padding: 1.5rem; }
+.sk-h { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.12em; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+.sk-list { list-style: none; }
+.sk-list li { font-size: 13px; color: var(--sub); padding: 5px 0; border-bottom: 1px solid #F0F0F0; }
+.sk-list li:last-child { border-bottom: none; }
+.sk-list li span { color: var(--text); font-weight: 500; }
 
-/* ─── CONTACT ─── */
-.contact-wrap { text-align: center; }
-.contact-wrap .sec-title { color: var(--white); }
-.contact-wrap .sec-desc { color: #A09080; margin: 0 auto 2.5rem; }
-.contact-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+/* CONTACT */
+.contact-inner { text-align: center; max-width: 580px; margin: 0 auto; }
 
-/* ─── FOOTER ─── */
-footer { background: var(--charcoal); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); }
-.fc { font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); }
+/* FOOTER */
+footer { background: var(--bg3); padding: 1.5rem 2.5rem; display: flex; justify-content: space-between; }
+.fc { font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(255,255,255,.3); }
 
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .proj-card, .proj-card.flip, .sns-top { grid-template-columns: 1fr; direction: ltr; }
-  .pc-img, .sns-img { min-height: 220px; border-left: none; border-top: 1.5px solid var(--border); }
+  .hero-side { display: none; }
+  .proj, .proj.r, .sns-top { grid-template-columns: 1fr; direction: ltr; }
+  .p-img, .sns-img { min-height: 220px; border-left: none; border-top: 1.5px solid var(--border); }
   .sns-bottom { grid-template-columns: 1fr; }
   .sns-item + .sns-item { border-left: none; border-top: 1.5px solid var(--border); }
   .act-grid { grid-template-columns: 1fr 1fr; }
   .intl-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
-  .intl-card.wide { grid-column: span 2; }
-  .sec { padding: 3.5rem 1.5rem; }
-  nav { padding: 0 1.5rem; }
+  .intl-card.w { grid-column: span 2; }
+  .sec { padding: 3.5rem 1.25rem; }
+  nav { padding: 0 1.25rem; }
   .nav-links { display: none; }
-  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  footer { flex-direction: column; gap: .5rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">박희령 · JAY PARK</div>
+  <div class="nav-logo">박희령 — JAY PARK</div>
   <ul class="nav-links">
     <li><a href="#about">소개</a></li>
     <li><a href="#projects">프로젝트</a></li>
@@ -277,163 +171,164 @@ footer { background: var(--charcoal); padding: 1.5rem 3rem; display: flex; justi
     <li><a href="#activities">활동</a></li>
     <li><a href="#global">글로벌</a></li>
     <li><a href="#skills">역량</a></li>
+    <li><a href="#contact">연락</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">GLOBAL MARKETING · AI TOOLS · CROSS-CULTURAL</div>
-    <h1>AI를 다루는<br><em>마케터,</em><br>데이터로 말하는<br>기획자.</h1>
-    <p class="hero-sub">AI로 완벽함이 복제되는 시대에서, 차별화는 더 정교한 기술이 아니라 사용자의 공감에서 시작된다고 생각합니다. 그 질문에서 출발해 문화적 감각까지 읽는 AI 마케팅 툴을 직접 만들었습니다.</p>
-    <div class="hero-chips">
-      <span class="chip">AI TOOL BUILDER</span>
-      <span class="chip">CROSS-CULTURAL</span>
-      <span class="chip">CS × LITERATURE</span>
-      <span class="chip">GLOBAL MARKETING</span>
+  <div class="hero-main">
+    <div class="hero-kicker">GLOBAL MARKETING · AI TOOLS · CROSS-CULTURAL</div>
+    <h1>AI를 다루는<br><span class="accent">마케터,</span><br>데이터로 말하는<br>기획자.</h1>
+    <p class="hero-body">AI로 완벽함이 복제되는 시대에서, 차별화는 더 정교한 기술이 아니라 사용자의 공감에서 시작된다고 생각합니다. 그 질문에서 출발해 문화적 감각까지 읽는 AI 마케팅 툴을 직접 만들었습니다.</p>
+    <div class="hero-tags">
+      <span class="tag">AI TOOL BUILDER</span>
+      <span class="tag">CROSS-CULTURAL</span>
+      <span class="tag">CS × LITERATURE</span>
+      <span class="tag">GLOBAL MARKETING</span>
     </div>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-fill">프로젝트 보기</a>
-      <a href="#contact" class="btn-line">연락하기</a>
+    <div class="cta-row">
+      <a href="#projects" class="btn-a">프로젝트 보기</a>
+      <a href="#contact" class="btn-b">연락하기</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-stat"><div class="hs-num">2+</div><div class="hs-label">AI 마케팅 툴 직접 개발 및 배포</div></div>
-    <div class="hero-stat"><div class="hs-num">5년</div><div class="hs-label">이스라엘 국제학교 거주 (2013–2018)</div></div>
-    <div class="hero-stat"><div class="hs-num">22팀 中 2위</div><div class="hs-label">캡스톤 프로젝트 수상</div></div>
-    <div class="hero-stat"><div class="hs-num">CMC</div><div class="hs-label">딥페이크 탐지 논문 국제학술대회 제출</div></div>
+  <div class="hero-side">
+    <div class="h-stat"><div class="hs-n">2+</div><div class="hs-l">AI 마케팅 툴 직접 개발 및 배포</div></div>
+    <div class="h-stat"><div class="hs-n">5년</div><div class="hs-l">이스라엘 국제학교 거주 (2013–2018)</div></div>
+    <div class="h-stat"><div class="hs-n">22팀 中 2위</div><div class="hs-l">캡스톤 프로젝트 수상</div></div>
+    <div class="h-stat"><div class="hs-n">CMC</div><div class="hs-l">딥페이크 탐지 논문 국제학술대회 제출</div></div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<div class="sec bg-white" id="about">
+<div class="sec" style="background:var(--bg2);" id="about">
   <div class="sec-inner">
-    <div class="sec-label">ABOUT</div>
-    <h2 class="sec-title">기술과 감성 사이에 삽니다</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:2rem;">
-      <div class="about-text">
-        <p><strong>한국외국어대학교</strong> 컴퓨터공학부와 영미문학번역학과를 복수전공 중입니다. AI 백엔드를 직접 개발하면서 동시에 소비자 심리와 문화적 뉘앙스를 분석합니다.</p>
-        <p>2013년부터 2018년까지 <em>이스라엘에서 5년간 거주</em>하며 영어 기반 국제학교를 다녔습니다. 언어의 장벽을 기획으로 넘는 법을 그 때 배웠습니다.</p>
-        <p>한미협회 서포터즈, 한일청년 파트너십 등 국제 협력 프로그램을 통해 문화가 메시지를 어떻게 다르게 수신하는지 직접 경험했습니다. <em>Transcreate의 문화적 위험 플래깅 기능</em>은 이 감각에서 나왔습니다.</p>
+    <div class="sec-header">
+      <div><div class="sec-kicker">ABOUT</div><div class="sec-title">기술과 감성 사이에 삽니다</div></div>
+      <div class="sec-num">01</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+      <div>
+        <p style="font-size:15px;color:var(--sub);line-height:1.9;margin-bottom:1rem;"><strong style="color:var(--text);font-weight:600;">한국외국어대학교</strong> 컴퓨터공학부와 영미문학번역학과를 복수전공 중입니다. AI 백엔드를 직접 개발하면서 동시에 소비자 심리와 문화적 뉘앙스를 분석합니다.</p>
+        <p style="font-size:15px;color:var(--sub);line-height:1.9;margin-bottom:1rem;">2013년부터 2018년까지 <strong style="color:var(--accent);font-weight:500;">이스라엘에서 5년간 거주</strong>하며 영어 기반 국제학교를 다녔습니다. 언어의 장벽을 기획으로 넘는 법을 그 때 배웠습니다.</p>
+        <p style="font-size:15px;color:var(--sub);line-height:1.9;">한미협회 서포터즈, 한일청년 파트너십 등 국제 협력 프로그램을 통해 문화가 메시지를 어떻게 다르게 수신하는지 직접 경험했습니다. <strong style="color:var(--accent);font-weight:500;">Transcreate의 문화적 위험 플래깅 기능</strong>은 이 감각에서 나왔습니다.</p>
       </div>
-      <div style="background:var(--sand);border-radius:4px;padding:2rem;border:1.5px solid var(--border);">
-        <p style="font-size:13px;color:var(--mid);line-height:1.9;">컴퓨터공학 × 영미문학번역이라는 조합은, 기술이 어떻게 작동하는지 이해하면서도 그것이 사람에게 어떤 언어로 전달되어야 하는지를 동시에 고민하게 만들었습니다. 마케터로서 이 두 관점은 하나의 무기입니다.</p>
-        <div style="margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:3px;overflow:hidden;">
-          <div style="background:var(--white);padding:1.25rem;"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--rust);margin-bottom:3px;">2027</div><div style="font-size:11px;color:var(--mid);">졸업예정</div></div>
-          <div style="background:var(--white);padding:1.25rem;"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--rust);margin-bottom:3px;">3.61</div><div style="font-size:11px;color:var(--mid);">GPA / 4.50</div></div>
-          <div style="background:var(--white);padding:1.25rem;"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--rust);margin-bottom:3px;">CS</div><div style="font-size:11px;color:var(--mid);">컴퓨터공학부</div></div>
-          <div style="background:var(--white);padding:1.25rem;"><div style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--rust);margin-bottom:3px;">ENG</div><div style="font-size:11px;color:var(--mid);">영미문학번역 (복수)</div></div>
-        </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1.5px solid var(--border);border-radius:6px;overflow:hidden;align-self:start;">
+        <div style="background:var(--bg);padding:1.5rem;"><div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent);margin-bottom:4px;">3.61</div><div style="font-size:12px;color:var(--muted);">GPA / 4.50</div></div>
+        <div style="background:var(--bg);padding:1.5rem;"><div style="font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent);margin-bottom:4px;">2027</div><div style="font-size:12px;color:var(--muted);">졸업예정</div></div>
+        <div style="background:var(--bg);padding:1.5rem;"><div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px;">컴퓨터공학부</div><div style="font-size:12px;color:var(--muted);">주전공</div></div>
+        <div style="background:var(--bg);padding:1.5rem;"><div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px;">영미문학번역</div><div style="font-size:12px;color:var(--muted);">복수전공</div></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- PROJECTS -->
-<div class="sec bg-sand" id="projects">
+<div class="sec" id="projects">
   <div class="sec-inner">
-    <div class="sec-label">PROJECTS</div>
-    <h2 class="sec-title">직접 만들고, 직접 검증했습니다</h2>
-    <p class="sec-desc">기획 의도부터 기술 구현, 배포까지 — 마케팅 문제를 AI로 직접 풀어낸 프로젝트들입니다.</p>
-
-    <div class="proj-card">
-      <div class="pc-body">
-        <div class="pc-tag">AI MARKETING TOOL · 01</div>
-        <div class="pc-title">Transcreate</div>
-        <p class="pc-desc">글로벌 광고 카피를 단순 번역이 아닌, 타깃 시장의 문화 코드에 맞게 재창작하는 AI 툴. 직역 시 발생할 수 있는 문화적 위험 요소를 사전에 자동 플래깅합니다.</p>
-        <div class="pc-meta">
-          <div class="pc-meta-row"><span class="pc-meta-k">역할</span><span class="pc-meta-v"><strong>기획 · 개발 · 배포 전담</strong> — 아이디어 설계부터 Cloud Run 배포까지 단독 진행</span></div>
-          <div class="pc-meta-row"><span class="pc-meta-k">성과</span><span class="pc-meta-v"><strong>Nike, Apple, Airbnb 등</strong> 실제 글로벌 브랜드 케이스로 문화 리스크 플래깅 기능 검증</span></div>
-        </div>
-        <div class="pc-pills"><span class="pc-pill">Google AI Studio</span><span class="pc-pill">Gemini API</span><span class="pc-pill">Cloud Run</span><span class="pc-pill">Cultural Risk Flagging</span></div>
-        <a href="https://transcreate-66856309088.asia-east1.run.app/" target="_blank" class="pc-link">라이브 데모 열기</a>
-      </div>
-      <div class="pc-img"><img src="screenshot-transcreate.png" alt="Transcreate"></div>
+    <div class="sec-header">
+      <div><div class="sec-kicker">PROJECTS</div><div class="sec-title">직접 만들고, 직접 검증했습니다</div></div>
+      <div class="sec-num">02</div>
     </div>
 
-    <div class="proj-card flip">
-      <div class="pc-body">
-        <div class="pc-tag">AI MARKETING TOOL · 02</div>
-        <div class="pc-title">Campaign Concept Builder</div>
-        <p class="pc-desc">브랜드 브리프를 입력하면 대행사 수석 CD처럼 상호 대조적인 3가지 크리에이티브 루트를 자동 생성합니다. 각 루트마다 Big Idea, Core Slogan, 전략 추천 이유 포함.</p>
-        <div class="pc-meta">
-          <div class="pc-meta-row"><span class="pc-meta-k">역할</span><span class="pc-meta-v"><strong>전략 프레임 설계 · 개발 · 배포 전담</strong> — 광고 기획 PT 구조를 AI 프롬프트로 번역</span></div>
-          <div class="pc-meta-row"><span class="pc-meta-k">성과</span><span class="pc-meta-v"><strong>Market Fit Score 96%</strong> 달성 케이스, 3개 Territory 동시 생성으로 기획 탐색 효율화</span></div>
+    <div class="proj">
+      <div class="p-body">
+        <div class="p-tag">AI MARKETING TOOL · 01</div>
+        <div class="p-title">Transcreate</div>
+        <p class="p-desc">글로벌 광고 카피를 단순 번역이 아닌, 타깃 시장의 문화 코드에 맞게 재창작하는 AI 툴. 직역 시 발생할 수 있는 문화적 위험 요소를 사전에 자동 플래깅합니다.</p>
+        <div class="p-meta">
+          <div class="p-row"><span class="p-k">역할</span><span class="p-v"><strong>기획·개발·배포 전담</strong> — 아이디어 설계부터 Cloud Run 배포까지 단독 진행</span></div>
+          <div class="p-row"><span class="p-k">성과</span><span class="p-v"><strong>Nike, Apple, Airbnb 등</strong> 실제 글로벌 브랜드 케이스로 문화 리스크 플래깅 검증</span></div>
         </div>
-        <div class="pc-pills"><span class="pc-pill">Gemini 3.5 Flash</span><span class="pc-pill">Google AI Studio</span><span class="pc-pill">Cloud Run</span><span class="pc-pill">PT Deck 생성</span></div>
-        <a href="https://service-885528335121.asia-east1.run.app/" target="_blank" class="pc-link">라이브 데모 열기</a>
+        <div class="pills"><span class="pill">Google AI Studio</span><span class="pill">Gemini API</span><span class="pill">Cloud Run</span><span class="pill">Cultural Risk Flagging</span></div>
+        <a href="https://transcreate-66856309088.asia-east1.run.app/" target="_blank" class="p-link">라이브 데모 열기</a>
       </div>
-      <div class="pc-img"><img src="screenshot-campaign.png" alt="Campaign Builder"></div>
+      <div class="p-img"><img src="screenshot-transcreate.png" alt="Transcreate"></div>
     </div>
 
-    <div class="proj-card">
-      <div class="pc-body">
-        <div class="pc-tag">TECH PROJECT · 03</div>
-        <div class="pc-title">딥페이크 탐지 시스템</div>
-        <p class="pc-desc">"왜 딥페이크인지"를 시각적으로 설명하는 XAI 기반 영상 탐지 시스템. Grad-CAM으로 얼굴 부위별 이상 근거를 제시해 신뢰 가능한 판정을 구현합니다.</p>
-        <div class="pc-meta">
-          <div class="pc-meta-row"><span class="pc-meta-k">역할</span><span class="pc-meta-v"><strong>백엔드 개발 주도</strong> — XAI 설명 기능 구현 및 기술 방향 조정</span></div>
-          <div class="pc-meta-row"><span class="pc-meta-k">성과</span><span class="pc-meta-v"><strong>22개 팀 중 2위 수상</strong>, CMC 국제 학술대회 논문 제출</span></div>
+    <div class="proj r">
+      <div class="p-body">
+        <div class="p-tag">AI MARKETING TOOL · 02</div>
+        <div class="p-title">Campaign Concept Builder</div>
+        <p class="p-desc">브랜드 브리프를 입력하면 대행사 수석 CD처럼 상호 대조적인 3가지 크리에이티브 루트를 자동 생성합니다. 각 루트마다 Big Idea, Core Slogan, 전략 추천 이유 포함.</p>
+        <div class="p-meta">
+          <div class="p-row"><span class="p-k">역할</span><span class="p-v"><strong>전략 프레임 설계·개발·배포 전담</strong> — 광고 기획 PT 구조를 AI 프롬프트로 번역</span></div>
+          <div class="p-row"><span class="p-k">성과</span><span class="p-v"><strong>Market Fit Score 96%</strong> 달성 케이스, 3개 Territory 동시 생성으로 기획 탐색 효율화</span></div>
         </div>
-        <div class="pc-pills"><span class="pc-pill">XAI / Grad-CAM</span><span class="pc-pill">딥러닝 백엔드</span><span class="pc-pill">22팀 중 2위</span><span class="pc-pill">CMC 논문 제출</span></div>
+        <div class="pills"><span class="pill">Gemini 3.5 Flash</span><span class="pill">Google AI Studio</span><span class="pill">Cloud Run</span><span class="pill">PT Deck 생성</span></div>
+        <a href="https://service-885528335121.asia-east1.run.app/" target="_blank" class="p-link">라이브 데모 열기</a>
       </div>
-      <div class="pc-img"><img src="deepfake-1.png" alt="딥페이크 탐지 결과 화면" style="object-position:top left;"></div>
+      <div class="p-img"><img src="screenshot-campaign.png" alt="Campaign Builder"></div>
     </div>
 
-    <div class="proj-card flip">
-      <div class="pc-body">
-        <div class="pc-tag">TECH PROJECT · 04</div>
-        <div class="pc-title">싱크홀 감지 IoT 시스템</div>
-        <p class="pc-desc">라즈베리파이 기반으로 도심 싱크홀을 조기 감지하는 IoT 시스템. 사회문제 해결을 기술로 접근한 프로젝트로, 현재 논문 작성까지 확장 중입니다.</p>
-        <div class="pc-meta">
-          <div class="pc-meta-row"><span class="pc-meta-k">역할</span><span class="pc-meta-v"><strong>기획 주도 · 개발 참여</strong> — 사회문제 정의부터 센서 설계 방향 수립까지</span></div>
-          <div class="pc-meta-row"><span class="pc-meta-k">성과</span><span class="pc-meta-v">교수님 피드백 반영 고도화, <strong>논문 작성 진행 중</strong> (2025.03 — 현재)</span></div>
+    <div class="proj">
+      <div class="p-body">
+        <div class="p-tag">TECH PROJECT · 03</div>
+        <div class="p-title">딥페이크 탐지 시스템</div>
+        <p class="p-desc">"왜 딥페이크인지"를 시각적으로 설명하는 XAI 기반 영상 탐지 시스템. Grad-CAM으로 얼굴 부위별 이상 근거를 제시해 신뢰 가능한 판정을 구현합니다.</p>
+        <div class="p-meta">
+          <div class="p-row"><span class="p-k">역할</span><span class="p-v"><strong>백엔드 개발 주도</strong> — XAI 설명 기능 구현 및 기술 방향 조정</span></div>
+          <div class="p-row"><span class="p-k">성과</span><span class="p-v"><strong>22개 팀 중 2위 수상</strong>, CMC 국제 학술대회 논문 제출</span></div>
         </div>
-        <div class="pc-pills"><span class="pc-pill">라즈베리파이</span><span class="pc-pill">IoT 센서</span><span class="pc-pill">사회문제 해결</span><span class="pc-pill">논문 진행 중</span></div>
+        <div class="pills"><span class="pill">XAI / Grad-CAM</span><span class="pill">딥러닝 백엔드</span><span class="pill">22팀 중 2위</span><span class="pill">CMC 논문 제출</span></div>
       </div>
-      <div class="pc-img"><img src="iot-photo.png" alt="IoT 시스템 실물" style="object-position:center;"></div>
+      <div class="p-img"><img src="deepfake-1.png" alt="딥페이크 탐지" style="object-position:top left;"></div>
+    </div>
+
+    <div class="proj r">
+      <div class="p-body">
+        <div class="p-tag">TECH PROJECT · 04</div>
+        <div class="p-title">싱크홀 감지 IoT 시스템</div>
+        <p class="p-desc">라즈베리파이 기반으로 도심 싱크홀을 조기 감지하는 IoT 시스템. 사회문제 해결을 기술로 접근한 프로젝트로, 현재 논문 작성까지 확장 중입니다.</p>
+        <div class="p-meta">
+          <div class="p-row"><span class="p-k">역할</span><span class="p-v"><strong>기획 주도·개발 참여</strong> — 사회문제 정의부터 센서 설계 방향 수립까지</span></div>
+          <div class="p-row"><span class="p-k">성과</span><span class="p-v">교수님 피드백 반영 고도화, <strong>논문 작성 진행 중</strong> (2025.03 — 현재)</span></div>
+        </div>
+        <div class="pills"><span class="pill">라즈베리파이</span><span class="pill">IoT 센서</span><span class="pill">사회문제 해결</span><span class="pill">논문 진행 중</span></div>
+      </div>
+      <div class="p-img"><img src="iot-photo.png" alt="IoT 시스템" style="object-position:center;"></div>
     </div>
   </div>
 </div>
 
-<!-- CONTENT / SNS -->
-<div class="sec bg-white" id="content">
+<!-- SNS CONTENT -->
+<div class="sec" style="background:var(--bg2);" id="content">
   <div class="sec-inner">
-    <div class="sec-label">SNS CONTENT</div>
-    <h2 class="sec-title">콘텐츠로 말했습니다</h2>
-    <p class="sec-desc">영미문학 카드뉴스로 시작해 공모전 출품 영상까지 — 직접 기획하고 제작한 인스타그램 채널입니다.</p>
-
-    <div class="sns-card">
+    <div class="sec-header">
+      <div><div class="sec-kicker">SNS CONTENT</div><div class="sec-title">콘텐츠로 말했습니다</div></div>
+      <div class="sec-num">03</div>
+    </div>
+    <div class="sns-wrap">
       <div class="sns-top">
         <div class="sns-info">
           <div>
             <div class="sns-handle">SNS CONTENT · @krkr_univ</div>
-            <div class="sns-t">SNS 콘텐츠<br>기획 · 제작</div>
-            <p class="sns-d">타깃 독자층을 고려한 카피라이팅과 비주얼 기획을 직접 담당. 문학 콘텐츠부터 공익 영상까지 장르를 넘나들며 제작했습니다.</p>
-            <div class="pc-meta" style="margin-bottom:1.25rem;">
-              <div class="pc-meta-row"><span class="pc-meta-k">역할</span><span class="pc-meta-v"><strong>기획 · 촬영 · 편집 전담</strong> — 채널 컨셉 설계부터 콘텐츠 제작까지 단독 운영</span></div>
-              <div class="pc-meta-row"><span class="pc-meta-k">성과</span><span class="pc-meta-v">카드뉴스 <strong>좋아요 119개</strong>, 공모전 영상 2편 제작·업로드</span></div>
+            <div class="sns-title">SNS 콘텐츠<br>기획 · 제작</div>
+            <p class="sns-desc">영미문학 카드뉴스로 시작해 공모전 출품 영상까지 — 타깃 독자층을 고려한 카피라이팅과 비주얼 기획을 직접 담당했습니다.</p>
+            <div class="p-meta" style="margin-bottom:1.25rem;">
+              <div class="p-row"><span class="p-k">역할</span><span class="p-v"><strong>기획·촬영·편집 전담</strong> — 채널 컨셉부터 제작까지 단독 운영</span></div>
+              <div class="p-row"><span class="p-k">성과</span><span class="p-v">카드뉴스 <strong>좋아요 119개</strong>, 공모전 영상 2편 제작·업로드</span></div>
             </div>
           </div>
-          <a href="https://www.instagram.com/krkr_univ" target="_blank" class="pc-link">인스타그램 보기</a>
+          <a href="https://www.instagram.com/krkr_univ" target="_blank" class="p-link">인스타그램 보기</a>
         </div>
-        <div class="sns-img"><img src="sns-cardnews.png" alt="영미문학 카드뉴스 Crossing the Bar"></div>
+        <div class="sns-img"><img src="sns-cardnews.png" alt="영미문학 카드뉴스"></div>
       </div>
       <div class="sns-bottom">
         <div class="sns-item">
-          <div class="sns-item-img"><img src="sns-consumer.png" alt="청년소비자 공모전"></div>
-          <div class="sns-item-body">
-            <div class="sit">공모전 영상 · 2024</div>
-            <div class="sin">제7회 청년소비자 이슈 공모전</div>
-            <p class="sid">청년 소비 문제·이슈를 발굴·분석하고 대안을 제시하는 영상 기획·편집·제작. 좋아요 72개.</p>
+          <div class="sns-iimg"><img src="sns-consumer.png" alt="청년소비자 공모전"></div>
+          <div class="sns-ibody">
+            <div class="si-tag">공모전 영상 · 2024</div>
+            <div class="si-title">제7회 청년소비자 이슈 공모전</div>
+            <p class="si-desc">청년 소비 문제·이슈를 발굴·분석하고 대안을 제시하는 영상 기획·편집·제작. 좋아요 72개.</p>
           </div>
         </div>
         <div class="sns-item">
-          <div class="sns-item-img"><img src="sns-112.png" alt="112신고 공모전"></div>
-          <div class="sns-item-body">
-            <div class="sit">공모전 영상 · 2024</div>
-            <div class="sin">2024 바른 112신고 공모전</div>
-            <p class="sid">거짓 신고 근절, 정확한 위치·상황 전달 등 공익 메시지를 담은 숏폼 영상 기획·편집·제작. 좋아요 55개.</p>
+          <div class="sns-iimg"><img src="sns-112.png" alt="112신고 공모전"></div>
+          <div class="sns-ibody">
+            <div class="si-tag">공모전 영상 · 2024</div>
+            <div class="si-title">2024 바른 112신고 공모전</div>
+            <p class="si-desc">거짓 신고 근절, 정확한 위치·상황 전달 등 공익 메시지를 담은 숏폼 영상 기획·편집·제작. 좋아요 55개.</p>
           </div>
         </div>
       </div>
@@ -442,161 +337,70 @@ footer { background: var(--charcoal); padding: 1.5rem 3rem; display: flex; justi
 </div>
 
 <!-- ACTIVITIES -->
-<div class="sec bg-sand" id="activities">
+<div class="sec" id="activities">
   <div class="sec-inner">
-    <div class="sec-label">ACTIVITIES</div>
-    <h2 class="sec-title">경험의 폭이 기획의 깊이입니다</h2>
-    <p class="sec-desc">교내외 활동, 데이터 학습, 국제 프로그램까지 — 다양한 현장에서 직접 실행한 경험들입니다.</p>
+    <div class="sec-header">
+      <div><div class="sec-kicker">ACTIVITIES</div><div class="sec-title">경험의 폭이 기획의 깊이입니다</div></div>
+      <div class="sec-num">04</div>
+    </div>
     <div class="act-grid">
-      <div class="act-card">
-        <div class="act-num">ACT 01</div>
-        <div class="act-title">공과대학 학생회 기획차장</div>
-        <div class="act-period">2022.03 — 2023.12 · 2년</div>
-        <div class="act-row"><span class="act-k">역할</span><span class="act-v">행사 기획 · 학생 의견 수렴 · 예산 협상</span></div>
-        <div class="act-row"><span class="act-k">성과</span><span class="act-v"><strong>이태원 참사 당일 즉각 대체 행사 기획</strong>, 예산 항목 재조정 협상 성공</span></div>
-      </div>
-      <div class="act-card">
-        <div class="act-num">ACT 02</div>
-        <div class="act-title">ADsP 교재 서포터즈</div>
-        <div class="act-period">2025.12 — 2026.02</div>
-        <div class="act-row"><span class="act-k">역할</span><span class="act-v">학습 루틴·활용법 정리 및 커뮤니티 공유</span></div>
-        <div class="act-row"><span class="act-k">성과</span><span class="act-v"><strong>데이터 학습 내용 구조화</strong>, 설명할 수 있어야 안다는 것을 확인</span></div>
-      </div>
-      <div class="act-card">
-        <div class="act-num">ACT 03</div>
-        <div class="act-title">한미협회 서포터즈 팀장</div>
-        <div class="act-period">2025.07 — 2025.12 · 국내 활동</div>
-        <div class="act-row"><span class="act-k">역할</span><span class="act-v">소프트파워 기고문 작성 · 팀 리딩</span></div>
-        <div class="act-row"><span class="act-k">성과</span><span class="act-v"><strong>K-콘텐츠 글로벌 확산 사례 기고문</strong> 작성 완료</span></div>
-      </div>
-      <div class="act-card">
-        <div class="act-num">ACT 04</div>
-        <div class="act-title">미국알기 프로그램</div>
-        <div class="act-period">2025.07 · 국내 활동</div>
-        <div class="act-row"><span class="act-k">역할</span><span class="act-v">AI·양자컴퓨팅 이슈 분석 및 발표</span></div>
-        <div class="act-row"><span class="act-k">성과</span><span class="act-v">기술 트렌드를 <strong>마케팅 기획 관점</strong>으로 번역하는 훈련</span></div>
-      </div>
-      <div class="act-card">
-        <div class="act-num">ACT 05</div>
-        <div class="act-title">한일청년 파트너십 팀장</div>
-        <div class="act-period">2025.12 · 3일 합숙 · 국내 활동</div>
-        <div class="act-row"><span class="act-k">역할</span><span class="act-v">노동팀 대표 토론 주도 · 양국 의견 조율</span></div>
-        <div class="act-row"><span class="act-k">성과</span><span class="act-v">서로 다른 논리 구조 연결해 <strong>공동 발표 완성</strong></span></div>
-      </div>
-      <div class="act-card">
-        <div class="act-num">ACT 06</div>
-        <div class="act-title">캡스톤 논문 작성</div>
-        <div class="act-period">2025.03 — 2025.12</div>
-        <div class="act-row"><span class="act-k">역할</span><span class="act-v">딥페이크 탐지 연구 확장 · 논문 집필</span></div>
-        <div class="act-row"><span class="act-k">성과</span><span class="act-v">Grad-CAM 보완 후 <strong>CMC 논문 제출</strong></span></div>
-      </div>
+      <div class="act-card"><div class="ac-n">ACT 01</div><div class="ac-t">공과대학 학생회 기획차장</div><div class="ac-p">2022.03 — 2023.12 · 2년</div><div class="ac-row"><span class="ac-k">역할</span><span class="ac-v">행사 기획 · 학생 의견 수렴 · 예산 협상</span></div><div class="ac-row"><span class="ac-k">성과</span><span class="ac-v"><strong>이태원 참사 당일 즉각 대체 행사 기획</strong>, 예산 재조정 협상 성공</span></div></div>
+      <div class="act-card"><div class="ac-n">ACT 02</div><div class="ac-t">ADsP 교재 서포터즈</div><div class="ac-p">2025.12 — 2026.02</div><div class="ac-row"><span class="ac-k">역할</span><span class="ac-v">학습 루틴·활용법 정리 및 커뮤니티 공유</span></div><div class="ac-row"><span class="ac-k">성과</span><span class="ac-v"><strong>데이터 학습 내용 구조화</strong>, 설명할 수 있어야 안다는 것을 확인</span></div></div>
+      <div class="act-card"><div class="ac-n">ACT 03</div><div class="ac-t">한미협회 서포터즈 팀장</div><div class="ac-p">2025.07 — 2025.12 · 국내 활동</div><div class="ac-row"><span class="ac-k">역할</span><span class="ac-v">소프트파워 기고문 작성 · 팀 리딩</span></div><div class="ac-row"><span class="ac-k">성과</span><span class="ac-v"><strong>K-콘텐츠 글로벌 확산 사례 기고문</strong> 작성 완료</span></div></div>
+      <div class="act-card"><div class="ac-n">ACT 04</div><div class="ac-t">미국알기 프로그램</div><div class="ac-p">2025.07 · 국내 활동</div><div class="ac-row"><span class="ac-k">역할</span><span class="ac-v">AI·양자컴퓨팅 이슈 분석 및 발표</span></div><div class="ac-row"><span class="ac-k">성과</span><span class="ac-v">기술 트렌드를 <strong>마케팅 기획 관점</strong>으로 번역하는 훈련</span></div></div>
+      <div class="act-card"><div class="ac-n">ACT 05</div><div class="ac-t">한일청년 파트너십 팀장</div><div class="ac-p">2025.12 · 3일 합숙 · 국내 활동</div><div class="ac-row"><span class="ac-k">역할</span><span class="ac-v">노동팀 대표 토론 주도 · 양국 의견 조율</span></div><div class="ac-row"><span class="ac-k">성과</span><span class="ac-v">서로 다른 논리 구조 연결해 <strong>공동 발표 완성</strong></span></div></div>
+      <div class="act-card"><div class="ac-n">ACT 06</div><div class="ac-t">캡스톤 논문 작성</div><div class="ac-p">2025.03 — 2025.12</div><div class="ac-row"><span class="ac-k">역할</span><span class="ac-v">딥페이크 탐지 연구 확장 · 논문 집필</span></div><div class="ac-row"><span class="ac-k">성과</span><span class="ac-v">Grad-CAM 보완 후 <strong>CMC 논문 제출</strong></span></div></div>
     </div>
   </div>
 </div>
 
 <!-- GLOBAL -->
-<div class="sec bg-dark" id="global">
+<div class="sec" style="background:var(--bg3);" id="global">
   <div class="sec-inner">
-    <div class="sec-label">GLOBAL EXPERIENCE</div>
-    <h2 class="sec-title">같은 메시지가<br>다르게 수신됩니다</h2>
-    <p class="sec-desc">이스라엘 5년 거주와 국내 기반 국제 협력 프로그램으로 — 문화가 커뮤니케이션을 어떻게 바꾸는지 직접 경험했습니다.</p>
+    <div class="sec-header" style="border-bottom-color:rgba(255,255,255,0.15);">
+      <div><div class="sec-kicker" style="color:#93B4FF;">GLOBAL EXPERIENCE</div><div class="sec-title" style="color:#fff;">같은 메시지가<br>다르게 수신됩니다</div></div>
+      <div class="sec-num" style="color:rgba(255,255,255,0.08);">05</div>
+    </div>
     <div class="intl-grid">
-      <div class="intl-card wide">
-        <span class="intl-flag">🇮🇱</span>
-        <div class="intl-t">이스라엘 국제학교 거주 (2013–2018, 5년)</div>
-        <div class="intl-p">현지 거주 · 히브리어 독학 · 영어 기반 수업</div>
-        <div class="intl-r">히브리어 수강 설득 · 현지 문화 체득</div>
-        <p class="intl-d" style="max-width:640px;">영어 기준 미달을 이유로 히브리어 수업이 제한됐을 때, 교감에게 수강 허용의 타당성을 직접 설득해 승인을 받았습니다. 이후 1년 6개월간 현지 회화 수준까지 끌어올렸습니다. 제약 조건을 기획 관점으로 풀어내는 방식을 처음 배운 경험입니다.</p>
-      </div>
-      <div class="intl-card">
-        <span class="intl-flag">🇰🇷 × 🇺🇸</span>
-        <div class="intl-t">한미협회 서포터즈 (팀장)</div>
-        <div class="intl-p">2025.07 — 2025.12 · 국내 활동</div>
-        <div class="intl-r">소프트파워 기고문 작성</div>
-        <p class="intl-d">K-콘텐츠 글로벌 확산 사례를 분석하며 문화가 브랜드보다 먼저 시장을 열 수 있다는 관점을 정립했습니다.</p>
-      </div>
-      <div class="intl-card">
-        <span class="intl-flag">🇰🇷 × 🇯🇵</span>
-        <div class="intl-t">한일청년 파트너십 (팀장)</div>
-        <div class="intl-p">2025.12 · 3일간 · 국내 활동</div>
-        <div class="intl-r">노동팀 대표 토론 주도</div>
-        <p class="intl-d">한일 청년이 노동·외교·사회 현안을 토론하고 발표하는 프로그램. 서로 다른 논리 구조를 연결해 공동 발표를 완성했습니다.</p>
-      </div>
+      <div class="intl-card w"><span class="i-flag">🇮🇱</span><div class="i-t">이스라엘 국제학교 거주 (2013–2018, 5년)</div><div class="i-p">현지 거주 · 히브리어 독학 · 영어 기반 수업</div><div class="i-r">히브리어 수강 설득 · 현지 문화 체득</div><p class="i-d" style="max-width:640px;">영어 기준 미달을 이유로 히브리어 수업이 제한됐을 때, 교감에게 수강 허용의 타당성을 직접 설득해 승인을 받았습니다. 이후 1년 6개월간 현지 회화 수준까지 끌어올렸습니다. 제약 조건을 기획 관점으로 풀어내는 방식을 처음 배운 경험입니다.</p></div>
+      <div class="intl-card"><span class="i-flag">🇰🇷 × 🇺🇸</span><div class="i-t">한미협회 서포터즈 (팀장)</div><div class="i-p">2025.07 — 2025.12 · 국내 활동</div><div class="i-r">소프트파워 기고문 작성</div><p class="i-d">K-콘텐츠 글로벌 확산 사례를 분석하며 문화가 브랜드보다 먼저 시장을 열 수 있다는 관점을 정립했습니다.</p></div>
+      <div class="intl-card"><span class="i-flag">🇰🇷 × 🇯🇵</span><div class="i-t">한일청년 파트너십 (팀장)</div><div class="i-p">2025.12 · 3일간 · 국내 활동</div><div class="i-r">노동팀 대표 토론 주도</div><p class="i-d">한일 청년이 노동·외교·사회 현안을 토론하고 발표. 서로 다른 논리 구조를 연결해 공동 발표를 완성했습니다.</p></div>
     </div>
   </div>
 </div>
 
 <!-- SKILLS -->
-<div class="sec bg-white" id="skills">
+<div class="sec" style="background:var(--bg2);" id="skills">
   <div class="sec-inner">
-    <div class="sec-label">SKILLS & BACKGROUND</div>
-    <h2 class="sec-title">역량</h2>
-    <p class="sec-desc">기술과 마케팅, 두 언어를 모두 씁니다.</p>
+    <div class="sec-header">
+      <div><div class="sec-kicker">SKILLS & BACKGROUND</div><div class="sec-title">역량</div></div>
+      <div class="sec-num">06</div>
+    </div>
     <div class="skills-grid">
-      <div class="skill-box">
-        <div class="skill-head">MARKETING</div>
-        <ul class="skill-list">
-          <li><span>글로벌 마케팅 기획</span></li>
-          <li><span>광고 카피 현지화</span></li>
-          <li><span>캠페인 컨셉 개발</span></li>
-          <li><span>소비자 리서치</span></li>
-          <li><span>SNS 콘텐츠 기획</span></li>
-          <li><span>브랜드 아이덴티티</span></li>
-        </ul>
-      </div>
-      <div class="skill-box">
-        <div class="skill-head">AI & TECH</div>
-        <ul class="skill-list">
-          <li><span>Gemini / Claude API</span></li>
-          <li><span>프롬프트 엔지니어링</span></li>
-          <li><span>Google Cloud Run</span></li>
-          <li><span>딥러닝 백엔드</span></li>
-          <li><span>XAI / Grad-CAM</span></li>
-          <li><span>IoT (라즈베리파이)</span></li>
-        </ul>
-      </div>
-      <div class="skill-box">
-        <div class="skill-head">DATA</div>
-        <ul class="skill-list">
-          <li><span>설문 설계 & 분석</span></li>
-          <li><span>데이터 시각화</span></li>
-          <li><span>ADsP</span></li>
-          <li><span>데이터 저널리즘</span></li>
-        </ul>
-      </div>
-      <div class="skill-box">
-        <div class="skill-head">LANGUAGES</div>
-        <ul class="skill-list">
-          <li><span>한국어</span> (모국어)</li>
-          <li><span>영어</span> (유창)</li>
-          <li><span>히브리어</span> (일상 회화)</li>
-        </ul>
-      </div>
-      <div class="skill-box">
-        <div class="skill-head">EDUCATION</div>
-        <ul class="skill-list">
-          <li><span>한국외국어대학교</span></li>
-          <li>컴퓨터공학부</li>
-          <li>영미문학번역 (복수)</li>
-          <li>GPA 3.61 / 4.50</li>
-          <li>졸업예정 2027.08</li>
-        </ul>
-      </div>
+      <div class="sk-box"><div class="sk-h">MARKETING</div><ul class="sk-list"><li><span>글로벌 마케팅 기획</span></li><li><span>광고 카피 현지화</span></li><li><span>캠페인 컨셉 개발</span></li><li><span>소비자 리서치</span></li><li><span>SNS 콘텐츠 기획</span></li><li><span>브랜드 아이덴티티</span></li></ul></div>
+      <div class="sk-box"><div class="sk-h">AI & TECH</div><ul class="sk-list"><li><span>Gemini / Claude API</span></li><li><span>프롬프트 엔지니어링</span></li><li><span>Google Cloud Run</span></li><li><span>딥러닝 백엔드</span></li><li><span>XAI / Grad-CAM</span></li><li><span>IoT (라즈베리파이)</span></li></ul></div>
+      <div class="sk-box"><div class="sk-h">DATA</div><ul class="sk-list"><li><span>설문 설계 & 분석</span></li><li><span>데이터 시각화</span></li><li><span>ADsP</span></li><li><span>데이터 저널리즘</span></li></ul></div>
+      <div class="sk-box"><div class="sk-h">LANGUAGES</div><ul class="sk-list"><li><span>한국어</span> (모국어)</li><li><span>영어</span> (유창)</li><li><span>히브리어</span> (일상 회화)</li></ul></div>
+      <div class="sk-box"><div class="sk-h">EDUCATION</div><ul class="sk-list"><li><span>한국외국어대학교</span></li><li>컴퓨터공학부</li><li>영미문학번역 (복수)</li><li>GPA 3.61 / 4.50</li><li>졸업예정 2027.08</li></ul></div>
     </div>
   </div>
 </div>
 
 <!-- CONTACT -->
-<div class="sec bg-dark" id="contact">
-  <div class="sec-inner contact-wrap">
-    <div class="sec-label" style="justify-content:center;">CONTACT</div>
-    <h2 class="sec-title" style="color:var(--white);">함께 이야기 나눠요</h2>
-    <p class="sec-desc" style="color:#A09080;margin:0.5rem auto 2.5rem;text-align:center;">글로벌 마케팅, AI 툴, 크로스컬처 기획에 관심 있는 분이라면 언제든 연락주세요.</p>
-    <div class="contact-btns">
-      <a href="mailto:your@email.com" class="btn-fill">이메일 보내기</a>
-      <a href="https://www.instagram.com/krkr_univ" target="_blank" class="btn-line">@krkr_univ</a>
-      <a href="https://transcreate-66856309088.asia-east1.run.app/" target="_blank" class="btn-line">Transcreate 체험</a>
-      <a href="https://service-885528335121.asia-east1.run.app/" target="_blank" class="btn-line">Campaign Builder 체험</a>
+<div class="sec" id="contact">
+  <div class="sec-inner">
+    <div class="sec-header">
+      <div><div class="sec-kicker">CONTACT</div><div class="sec-title">함께 이야기 나눠요</div></div>
+      <div class="sec-num">07</div>
+    </div>
+    <div class="contact-inner">
+      <p style="font-size:16px;color:var(--sub);line-height:1.8;margin-bottom:2.5rem;">글로벌 마케팅, AI 툴, 크로스컬처 기획에 관심 있는 분이라면 언제든 연락주세요.</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a href="mailto:your@email.com" class="btn-a">이메일 보내기</a>
+        <a href="https://www.instagram.com/krkr_univ" target="_blank" class="btn-b">@krkr_univ</a>
+        <a href="https://transcreate-66856309088.asia-east1.run.app/" target="_blank" class="btn-b">Transcreate</a>
+        <a href="https://service-885528335121.asia-east1.run.app/" target="_blank" class="btn-b">Campaign Builder</a>
+      </div>
     </div>
   </div>
 </div>
